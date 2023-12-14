@@ -37,5 +37,12 @@ pipeline{
                     }
                 }
         }
+        stage ('Clone Fancy Way')
+        {
+            steps{
+                git branch: 'develop', changelog: false, credentialsId: 'GITHUB_APP_PROVISION', poll: false, url: 'https://github.com/gcampoverde-altus/app-dummy-service-1'
+            }
+        }
+        
     }
 }
