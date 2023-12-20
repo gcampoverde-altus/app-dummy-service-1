@@ -32,6 +32,7 @@ pipeline{
                              sh """
                                     git clone -b $branch https://"\$GITHUB_ACCESS_TOKEN":x-oauth-basic@github.com/gcampoverde-altus/app-dummy-service-1.git
                                     cd $env.app_dir
+                                    ls
                                 """
                         }
                     }
@@ -41,6 +42,10 @@ pipeline{
         {
             steps{
                 git branch: 'develop', changelog: false, credentialsId: 'GITHUB_APP_PROVISION', poll: false, url: 'https://github.com/gcampoverde-altus/app-dummy-service-1'
+                sh """
+                                    cd $env.app_dir
+                                    ls
+                                """
             }
         }
         
