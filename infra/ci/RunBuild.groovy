@@ -25,7 +25,7 @@ pipeline{
                     script
                     {
 
-                        withCredentials([usernamePassword(credentialsId: 'GITHUB_APP_PROVISION',
+                        withCredentials([usernamePassword(credentialsId: 'GitHubAppIntegration',
                                           usernameVariable: 'GITHUB_APP',
                                           passwordVariable: 'GITHUB_ACCESS_TOKEN')]) {
 
@@ -41,7 +41,7 @@ pipeline{
         stage ('Clone Fancy Way')
         {
             steps{
-                git branch: 'develop', changelog: false, credentialsId: 'GITHUB_APP_PROVISION', poll: false, url: 'https://github.com/gcampoverde-altus/app-dummy-service-1'
+                git branch: 'develop', changelog: false, credentialsId: 'GitHubAppIntegration', poll: false, url: 'https://github.com/gcampoverde-altus/app-dummy-service-1'
                 sh """
                                     cd $env.app_dir
                                     ls
