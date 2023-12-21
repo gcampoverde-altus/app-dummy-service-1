@@ -45,6 +45,7 @@ pipeline{
                 sh """
                                     cd $env.app_dir
                                     ls
+                                    echo 'Clonned'
                                 """
             }
         }
